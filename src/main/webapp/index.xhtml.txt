@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:h ="http://java.sun.com/jsf/html" 
+	  xmlns:f="http://java.sun.com/jsf/core" 
+	  xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<title>The HOME page</title>
+</h:head> 
+
+<h:body>
+	<div class="wrap">
+		<div class="header">
+		<div class="logo">
+		  	 <a href="index.xhtml"><img src="images/mylogo1.jpg" /> </a>
+		</div>
+    	 </div>	
+	</div>
+<b:navBar role="navigation" inverse="true">
+    <b:navbarLinks>
+   		<b:navLink value="Home" href="index.xhtml"></b:navLink> 
+        <b:dropMenu  value="Disability Certificate">
+           	<b:navLink value="Issue New Certificate" href="patientInfo.xhtml" rendered="#{loginBean.role=='USER1'}"></b:navLink>
+            <b:navLink value="View Old Certificate" href="issueCertificate.xhtml"></b:navLink>
+        </b:dropMenu>
+        <b:navLink value="Login" href="login.xhtml"></b:navLink>
+        <b:dropMenu  value="Register">
+            <b:navLink value="Medical Assessor" href="registerMedA.xhtml"></b:navLink>
+            <b:navLink value="Associate Staff" href="registerAssoStaff.xhtml"></b:navLink>
+            <b:navLink value="Patient" href="registerPatient.xhtml"></b:navLink>
+            
+    </b:dropMenu>
+    <b:dropMenu value="#{loginBean.loginId}" rendered="#{loginBean.role eq 'USER1' or loginBean.role eq 'USER2'}" >
+    <b:navLink  value="ViewProfile" href="viewProfile.xhtml"></b:navLink>
+			<b:navLink  value="Change Password"></b:navLink>
+    </b:dropMenu>
+   
+    <h:form id="MyTest">
+    
+    <h:commandButton  style="margin-top:0.5em; margin-left:22em; font-size:20px;" value="Logout" action="#{loginBean.logout}" rendered="#{loginBean.role eq 'USER1' or loginBean.role eq 'USER2'}">
+    </h:commandButton>
+    </h:form>
+    
+    </b:navbarLinks>
+</b:navBar>
+<!--main-->
+
+	<!-- <img style="margin: 5px 5px 5px 5px;max-width:100%;" src="images/DoctorPatient.jpg" />  -->
+	
+	<b:container fluid="true" >
+	
+		<b:row>
+		 <img style="float:left; margin: 0px 0px 0px 0px;" src="images/IndiaGreen.jpg" /> 
+			<div style="font-size: 1.5em;">
+			<b:column span="8">
+			Ministry of Social Justice and Empowerment, Government of India wide its notification 
+			dated 01.06.2001 has issued guidelines for evaluation of various disabilities and procedure for certification.<br/><br/>
+			In order to review the guidelines for evaluation of various disabilities and procedure for certification keeping in 
+			view the Persons with Disabilities(Equal oppurtunities,Protection of Rights and full Participation) Act,1995,these 
+			guidelines were issues for evaluation of various disabilities such as Visual impairment, Locomotor/Orthopaedical 
+			disability,Speech and Hearing disability, Mental Retardation and Multiple Disabilities.According to these guidelines, 
+			the minimum degree of disability should be 40% in order to be eligible for any concessions/benefits.<br/><br/>
+			
+			According to the Persons with disabilities( Equal Opportunities, Protection of Rights and full Participation ) Rules, 1996 
+			notified on 31.12.1996 and section (1) and (2) of section 73, authorities to give disability certificate will be a
+			Medical Board duly constituted by the Central and the State Government.<br/><br/>
+			
+			
+	</b:column></div>
+	</b:row>
+	</b:container>
+
+</h:body>
+
+</html>
